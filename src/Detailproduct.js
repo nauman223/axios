@@ -1,27 +1,21 @@
-import React from 'react';
-import { getAllProduct } from "./api/product";
-import { useEffect, useState } from "react";
+import React, { Component } from "react";
+import { getAllProductdetail } from "./api/product";
 
-const App = () =>{
-  const [product, setProduct] = useState([]);
-  useEffect(() => {
-    getProductList();
-  }, []);
+class Detailproduct extends Component {
+  constructor(props) {
+    super(props);
+    console.log(`props`, props);
+    console.log(`id`, props.match.params.id);
 
-  const getProductList = () => {
-    getAllProduct().then((res) => {
-      console.log(`res`, res.data.data);
-      setProduct(res.data.data);
-    });
-  };
+    if (props && props.match && props.match.params && props.match.params.id) {
+      getAllProductdetail(props.match.params.id).then((res) => {
+        console.log(`res`, res.data);
+      });
+    }
+  }
 
-function App() {
-  return (
-    <div>
-     <h1>hello world</h1>
-    </div>
-  );
+  render() {
+    return <div></div>;
+  }
 }
-}
-
-export default App;
+export default Detailproduct;

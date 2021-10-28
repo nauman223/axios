@@ -4,14 +4,14 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';  
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import Detailproduct from './Detailproduct';
+import reportWebVitals from './reportWebVitals'; 
+import DetailProduct from './Detailproduct';
 
 ReactDOM.render(
   <BrowserRouter>
   <Switch>
     <Route exact path="/" component={App} />
-    <Route path="/det"  component={Detailproduct} />
+    <Route path="/details/:id"  component={DetailProduct} />
   
   </Switch>
 </BrowserRouter>,
